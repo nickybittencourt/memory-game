@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <audio src="./Sounds/rightSelection.mp3" id="rightSelection"></audio>
+    <audio src="./Sounds/wrongSelection.mp3" id="wrongSelection"></audio>
+    <audio src="./Sounds/gameOver.mp3" id="gameOver"></audio>
+
+    <div class="container" id="game-container">
+        <header>
+            <h1>Memory Game</h1>
+        </header>
+
+        <section class="score-panel">
+            <button onclick="setUpGame()" id="play-button">Play</button>
+
+            <span id="score-box">Score: <span id="score">0</span></span>
+        </section>
+
+        <div id="deck">
+
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+
+</html>

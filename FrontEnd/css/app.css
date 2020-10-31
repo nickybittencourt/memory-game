@@ -1,0 +1,167 @@
+body {
+
+    background-color: #ebeee8;
+
+}
+
+.container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#summary-container {
+
+    margin: 10%;
+}
+
+#summary-container h1 {
+
+    padding-right: 50px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Zilla Slab',
+        serif;
+    font-size: 50px;
+    color: #007d75;
+
+}
+
+form {
+    width: 40%;
+}
+
+input {
+
+    margin-top: 70px;
+    width: 540px;
+    margin-left: -15px;
+    padding: 7px;
+    border-radius: 25px;
+}
+
+#score-box {
+
+    font-family: 'Zilla Slab',
+        serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #ebeee8;
+    border-radius: 10px;
+    padding: 15px 32px;
+    background-color: #007d75;
+
+}
+
+#high-score-box {
+
+    font-family: 'Zilla Slab',
+        serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #ebeee8;
+    border-radius: 10px;
+    padding: 15px 32px;
+    background-color: #007d75;
+    margin-right: 10px;
+}
+
+#play-button {
+
+    font-family: 'Zilla Slab',
+        serif;
+    border-radius: 10px;
+    margin: auto;
+    color: #ebeee8;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px 32px;
+    border: none;
+    background-color: #007d75;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#submit-button {
+
+    font-family: 'Zilla Slab',
+        serif;
+    border-radius: 10px;
+    margin: auto;
+    color: #ebeee8;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007d75;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 190px;
+}
+
+#restart-button {
+
+    font-family: 'Zilla Slab',
+        serif;
+    border-radius: 10px;
+    margin: auto;
+    color: #ebeee8;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px 32px;
+    border: none;
+    background-color: #007d75;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#leaderboard-button {
+
+    font-family: 'Zilla Slab',
+        serif;
+    border-radius: 10px;
+    margin: auto;
+    color: #ebeee8;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 15px 32px;
+    border: none;
+    background-color: #007d75;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#deck {
+
+    padding: 1rem;
+    margin: 7% auto;
+    display: flex;
+    transform-origin: 50% 50%;
+}
+
+#deck .card {
+    height: 3.7rem;
+    width: 3.7rem;
+    margin: 0.2rem 0.2rem;
+    background: #87C9A1;
+    border-radius: 5px;
+}
+
+#deck .selected {
+
+    height: 3.7rem;
+    width: 3.7rem;
+    margin: 0.3rem 0.3rem;
+    background: #87C9A1;
+    border-radius: 5px;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.row {
+
+    display: inline;
+}
