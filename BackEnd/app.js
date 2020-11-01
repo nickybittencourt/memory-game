@@ -4,44 +4,75 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 const bodyParser = require('body-parser');
+let ejs = require('ejs');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-app.post('/leaderboard', urlencodedParser, function (req, res) {
-    
-  console.log(req.body)
-  addUser(req.body['userName'], req.body['score'])
-  res.sendFile(path.join(__dirname, '../FrontEnd/leaderboard.html'));
-});
+app.use('*/css',express.static('FrontEnd/css'));
+app.use('*/js',express.static('FrontEnd/js'));
+app.use('*/images',express.static('FrontEnd/images'));
+app.use('*/Sounds', express.static('FrontEnd/Sounds'));
 
 app.use(express.static(path.join(__dirname, '../FrontEnd/')));
 
-router.get('/',function(req,res){
+console.log("something")
+
+app.post('/comp4537/MemoryGame/leaderboard.ejs', urlencodedParser, function (req, res) {
+  addUser(req.body['userName'], req.body['score'])
+  showUsers(res);
+});
+
+app.use(express.static('/home/ntbitten/repositories/memory-game/FrontEnd/'));
+
+router.get('/comp4537/MemoryGame/',function(req,res){
   res.sendFile(path.join(__dirname, '../FrontEnd/index.html'));
   
 });
 
-router.get('/summary',function(req,res){
+router.get('/comp4537/MemoryGame/index.html',function(req,res){
+  res.sendFile(path.join(__dirname, '../FrontEnd/index.html'));
+  
+});
+
+router.get('/comp4537/MemoryGame/summary.html',function(req,res){
   res.sendFile(path.join(__dirname, '../FrontEnd/summary.html'));
 });
 
-router.get('/leaderboard',function(req,res){
+router.get('/comp4537/MemoryGame/leaderboard.ejs',function(req,res){
   
+  showUsers(res);
 });
 
 //add the router
 app.use('/', router);
-app.listen(process.env.port || 3000);
+app.listen();
 
-console.log('Running at Port 3000');
+function showUsers(res){
+    
+    const con = mysql.createConnection({
+    host: "localhost",
+    user: "ntbitten_UserScores_admin",
+    password: "h^tO91@$!SJm",
+    database: "ntbitten_UserScores"
+    });
+    
+    con.query('SELECT * FROM score', (err, result, fields) => {
+
+        if (err) throw err;
+        res.render('../FrontEnd/leaderboard.ejs', { title: 'User List', userData: result});
+        console.log(result)
+    });
+}
 
 function addUser(username, score) {
-
-  const con = mysql.createConnection({
+    
+    const con = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "12345",
-  });
+    user: "ntbitten_UserScores_admin",
+    password: "h^tO91@$!SJm",
+    database: "ntbitten_UserScores"
+    });
   
+
   con.connect(err => {
 
     if (err) throw err;
@@ -56,10 +87,9 @@ function addUser(username, score) {
 
         if (err) throw err;
 
-        const insertQuery = "INSERT INTO score (name, score) VALUES('"+username+"', '+score+')";
+        const insertQuery = "INSERT INTO score (name, score) VALUES('"+username+"', '"+score+"')";
         con.query(insertQuery, (err, result) => {
             if (err) throw err;
-            console.log('1 record inserted');
         });
 
         con.end(err => {
