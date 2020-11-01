@@ -27,9 +27,10 @@
             <button onclick="displayLeaderboard()" id="leaderboard-button">Leaderboard</button>
         </section>
 
-        <form>
-            <input type="text">
-            <button onclick="submitHighScore()" id="submit-button">Submit</button>
+        <form name="submit" method="POST" action="/leaderboard" onsubmit="return validateForm()">
+            <input type="text" placeholder="Your Name" name="userName">
+            <button id="submit-button">Submit</button>
+            <input type="hidden" name="score" id="high-score-form">
         </form>
 
     </div>

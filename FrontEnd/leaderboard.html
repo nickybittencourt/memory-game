@@ -8,32 +8,23 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="/css/app.css">
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="container" id="summary-container">
+    <div class="container" id="leaderboard-container">
         <header>
-            <h1>Summary</h1>
+            <h1>Leaderboard</h1>
         </header>
 
         <section class="score-panel">
             <button onclick="restart()" id="restart-button">Restart</button>
-
-            <span id="high-score-box">High Score: <span id="high-score">0</span></span>
-
-            <button onclick="displayLeaderboard()" id="leaderboard-button">Leaderboard</button>
         </section>
 
-        <form>
-            <input type="text">
-            <button onclick="submitHighScore()" id="submit-button">Submit</button>
-        </form>
-
     </div>
-    <script src="./js/sumarry.js"></script>
+    <!-- <script src="./js/sumarry.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </body>
