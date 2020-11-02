@@ -14,23 +14,21 @@ app.use('*/Sounds', express.static('FrontEnd/Sounds'));
 
 app.use(express.static(path.join(__dirname, '../FrontEnd/')));
 
-console.log("something")
+console.log("something");
 
 app.post('/comp4537/MemoryGame/leaderboard.ejs', urlencodedParser, function (req, res) {
-  addUser(req.body['userName'], req.body['score'])
-  showUsers(res);
+  addUser(req.body['userName'], req.body['score'], res);
+  
 });
 
 app.use(express.static('/home/ntbitten/repositories/memory-game/FrontEnd/'));
 
 router.get('/comp4537/MemoryGame/',function(req,res){
   res.sendFile(path.join(__dirname, '../FrontEnd/index.html'));
-  
 });
 
 router.get('/comp4537/MemoryGame/index.html',function(req,res){
   res.sendFile(path.join(__dirname, '../FrontEnd/index.html'));
-  
 });
 
 router.get('/comp4537/MemoryGame/summary.html',function(req,res){
@@ -38,11 +36,10 @@ router.get('/comp4537/MemoryGame/summary.html',function(req,res){
 });
 
 router.get('/comp4537/MemoryGame/leaderboard.ejs',function(req,res){
-  
   showUsers(res);
+  
 });
 
-//add the router
 app.use('/', router);
 app.listen();
 
@@ -55,15 +52,14 @@ function showUsers(res){
     database: "ntbitten_UserScores"
     });
     
-    con.query('SELECT * FROM score', (err, result, fields) => {
+    con.query('SELECT * FROM score ORDER BY score desc LIMIT 5', (err, result, fields) => {
 
         if (err) throw err;
         res.render('../FrontEnd/leaderboard.ejs', { title: 'User List', userData: result});
-        console.log(result)
     });
 }
 
-function addUser(username, score) {
+function addUser(username, score, res) {
     
     const con = mysql.createConnection({
     host: "localhost",
@@ -71,8 +67,7 @@ function addUser(username, score) {
     password: "h^tO91@$!SJm",
     database: "ntbitten_UserScores"
     });
-  
-
+ 
   con.connect(err => {
 
     if (err) throw err;
@@ -100,4 +95,6 @@ function addUser(username, score) {
         });
     });
 });
+
+    showUsers(res);
 }

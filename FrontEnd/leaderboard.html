@@ -14,27 +14,44 @@
 
 <body>
 
-    <div class="container" id="summary-container">
+    <div class="container" id="leaderboard-container">
         <header>
-            <h1>Summary</h1>
+            <h1>Leaderboard</h1>
         </header>
 
         <section class="score-panel">
             <button onclick="restart()" id="restart-button">Restart</button>
-
-            <span id="high-score-box">High Score: <span id="high-score">0</span></span>
-
-            <button onclick="showLeaderboard()" id="leaderboard-button">Leaderboard</button>
         </section>
-
-        <form name="submit" method="POST" action="/comp4537/MemoryGame/leaderboard.ejs" onsubmit="return validateForm()">
-            <input type="text" placeholder="Your Name" name="userName">
-            <button id="submit-button">Submit</button>
-            <input type="hidden" name="score" id="high-score-form">
-        </form>
-
+        
+        <p><%= result %></p>
     </div>
-    <script src="./js/sumarry.js"></script>
+    
+    <table border="1">
+        <tr>
+            <th>User Name</th>
+            <th>Score</th>
+        </tr>
+        
+        <%
+        if(result.length!=0){
+        var i=1;
+        result.forEach(function(data){
+        %>
+        <tr>
+            <td><%=i; %></td>
+            <td><%=result.name %></td>
+            <td><%=result.score %></td>
+            
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+
+    <script src="./js/leaderboard.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </body>

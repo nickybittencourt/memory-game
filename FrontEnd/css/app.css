@@ -135,6 +135,33 @@ input {
     margin-right: 10px;
 }
 
+#leaderboardTable {
+    
+    width: 40%;
+    font-family: 'Zilla Slab',
+        serif;
+    border-collapse: collapse;
+    margin-top: 5%;
+    margin-left: 30%;
+}
+
+#leaderboardTable tr:hover {background-color: #ddd;}
+
+#leaderboardTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #007d75;
+  color: #ebeee8;
+}
+
+#leaderboardTable td, #leaderboardTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#leaderboardTable tr:nth-child(even){background-color: #f2f2f2;}
+
 #deck {
 
     padding: 1rem;
@@ -146,7 +173,7 @@ input {
 #deck .card {
     height: 3.7rem;
     width: 3.7rem;
-    margin: 0.2rem 0.2rem;
+    margin: 0.3rem 0.3rem;
     background: #87C9A1;
     border-radius: 5px;
 }

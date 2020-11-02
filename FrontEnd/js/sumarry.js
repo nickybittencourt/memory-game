@@ -21,4 +21,9 @@ function validateForm() {
     return true
 }
 
+function showLeaderboard() {
+    
+    window.location.href = "./leaderboard.ejs";
+}
+
 window.onload = updateHighScoreLabel()
